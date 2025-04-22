@@ -20,14 +20,14 @@ export class Runn extends RunnBaseNode {
       let returnData: INodeExecutionData[] = [];
 
       switch (resource) {
-        case 'people':
-          returnData = await executePeopleOperation.call(this, operation, items, runnApi);
+        case 'clients':
+          returnData = await executeClientsOperation.call(this, operation, items, runnApi);
           break;
         case 'projects':
           returnData = await executeProjectsOperation.call(this, operation, items, runnApi);
           break;
-        case 'clients':
-          returnData = await executeClientsOperation.call(this, operation, items, runnApi);
+        case 'people':
+          returnData = await executePeopleOperation.call(this, operation, items, runnApi);
           break;
         default:
           throw new Error(`Unsupported resource ${resource}`);

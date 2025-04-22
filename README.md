@@ -2,11 +2,13 @@
 
 This is an n8n community node. It lets you use Runn in your n8n workflows.
 
-Runn is a project management platform that helps you manage your team's work and projects.
-
-![](https://github.com/user-attachments/assets/f1e7628a-202b-44ab-82a0-67e016f89af9)
+[Runn](https://runn.io/) is a project management platform that helps you manage your team's work and projects.
 
 [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
+
+## Example of 2-way synchronization between Runn and Google Sheets
+
+![](https://github.com/user-attachments/assets/f1e7628a-202b-44ab-82a0-67e016f89af9)
 
 ## Installation
 
@@ -34,8 +36,8 @@ To use this node, you need to have a Runn API key. You can get one from your [Ru
 ### Supported Resources & Operations
 
 - `Client` (fetch all, fetch one, create, update, delete, archive, unarchive)
-- `Project` (fetch all, fetch one, create, update, delete, archive, unarchive)
-- `Person` (fetch all, fetch one, create, update, delete, archive, unarchive)
+- `Project` (fetch all, fetch one, create, update, delete, archive, add a note, unarchive, delete)
+- `Person` (fetch all, fetch one, create, update, delete, archive, unarchive, delete)
 
 ## Compatibility
 

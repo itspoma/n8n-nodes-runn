@@ -7,15 +7,6 @@ export const RUNN_OPERATIONS = {
     ARCHIVE: 'archiveClient',
     UNARCHIVE: 'unarchiveClient',
   },
-  PEOPLE: {
-    FETCH_ALL: 'fetchAllPeople',
-    FETCH_ONE: 'fetchPerson',
-    CREATE: 'createPerson',
-    UPDATE: 'updatePerson',
-    ARCHIVE: 'archivePerson',
-    UNARCHIVE: 'unarchivePerson',
-    DELETE: 'deletePerson',
-  },
   PROJECTS: {
     FETCH_ALL: 'fetchAllProjects',
     FETCH_ONE: 'fetchProject',
@@ -25,6 +16,15 @@ export const RUNN_OPERATIONS = {
     ARCHIVE: 'archiveProject',
     UNARCHIVE: 'unarchiveProject',
     DELETE: 'deleteProject',
+  },
+  PEOPLE: {
+    FETCH_ALL: 'fetchAllPeople',
+    FETCH_ONE: 'fetchPerson',
+    CREATE: 'createPerson',
+    UPDATE: 'updatePerson',
+    ARCHIVE: 'archivePerson',
+    UNARCHIVE: 'unarchivePerson',
+    DELETE: 'deletePerson',
   },
 } as const;
 

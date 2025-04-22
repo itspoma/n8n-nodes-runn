@@ -99,64 +99,6 @@ export const nodeDescription: INodeTypeDescription = {
       ],
     },
 
-    // Operations for People
-    {
-      displayName: 'Operation',
-      name: 'operation',
-      type: 'options',
-      default: RUNN_OPERATIONS.PEOPLE.FETCH_ALL,
-      noDataExpression: true,
-      displayOptions: {
-        show: {
-          resource: ['people'],
-        },
-      },
-      options: [
-        {
-          name: 'Get All',
-          value: RUNN_OPERATIONS.PEOPLE.FETCH_ALL,
-          description: 'Get all people',
-          action: 'Get all people',
-        },
-        {
-          name: 'Get One',
-          value: RUNN_OPERATIONS.PEOPLE.FETCH_ONE,
-          description: 'Get a single person',
-          action: 'Get a person',
-        },
-        {
-          name: 'Create',
-          value: RUNN_OPERATIONS.PEOPLE.CREATE,
-          description: 'Create a new person',
-          action: 'Create a person',
-        },
-        {
-          name: 'Update',
-          value: RUNN_OPERATIONS.PEOPLE.UPDATE,
-          description: 'Update a person',
-          action: 'Update a person',
-        },
-        {
-          name: 'Archive',
-          value: RUNN_OPERATIONS.PEOPLE.ARCHIVE,
-          description: 'Archive a person',
-          action: 'Archive a person',
-        },
-        {
-          name: 'Unarchive',
-          value: RUNN_OPERATIONS.PEOPLE.UNARCHIVE,
-          description: 'Unarchive a person',
-          action: 'Unarchive a person',
-        },
-        {
-          name: 'Delete',
-          value: RUNN_OPERATIONS.PEOPLE.DELETE,
-          description: 'Delete a person',
-          action: 'Delete a person',
-        },
-      ]
-    },
-
     // Operations for Projects
     {
       displayName: 'Operation',
@@ -221,43 +163,62 @@ export const nodeDescription: INodeTypeDescription = {
       ],
     },
 
-    // ID or Email field for single item operations (people)
+    // Operations for People
     {
-      displayName: 'ID or Email',
-      name: 'idOrEmail',
-      type: 'string',
-      required: true,
+      displayName: 'Operation',
+      name: 'operation',
+      type: 'options',
+      default: RUNN_OPERATIONS.PEOPLE.FETCH_ALL,
+      noDataExpression: true,
       displayOptions: {
         show: {
-          operation: [
-            RUNN_OPERATIONS.PEOPLE.FETCH_ONE,
-            RUNN_OPERATIONS.PEOPLE.UPDATE,
-            RUNN_OPERATIONS.PEOPLE.ARCHIVE,
-            RUNN_OPERATIONS.PEOPLE.UNARCHIVE,
-            RUNN_OPERATIONS.PEOPLE.DELETE
-          ],
+          resource: ['people'],
         },
       },
-      default: '',
-      description: 'ID or Email of the item to operate on (at least one of them should be filled)',
-    },
-
-    // Fields for fetching all people, clients, and projects
-    {
-      displayName: 'Only Active',
-      name: 'onlyActive',
-      type: 'boolean',
-      default: false,
-      displayOptions: {
-        show: {
-          operation: [
-            RUNN_OPERATIONS.PEOPLE.FETCH_ALL,
-            RUNN_OPERATIONS.CLIENTS.FETCH_ALL,
-            RUNN_OPERATIONS.PROJECTS.FETCH_ALL
-          ],
+      options: [
+        {
+          name: 'Get All',
+          value: RUNN_OPERATIONS.PEOPLE.FETCH_ALL,
+          description: 'Get all people',
+          action: 'Get all people',
         },
-      },
-      description: 'Return only active people',
+        {
+          name: 'Get One',
+          value: RUNN_OPERATIONS.PEOPLE.FETCH_ONE,
+          description: 'Get a single person',
+          action: 'Get a person',
+        },
+        {
+          name: 'Create',
+          value: RUNN_OPERATIONS.PEOPLE.CREATE,
+          description: 'Create a new person',
+          action: 'Create a person',
+        },
+        {
+          name: 'Update',
+          value: RUNN_OPERATIONS.PEOPLE.UPDATE,
+          description: 'Update a person',
+          action: 'Update a person',
+        },
+        {
+          name: 'Archive',
+          value: RUNN_OPERATIONS.PEOPLE.ARCHIVE,
+          description: 'Archive a person',
+          action: 'Archive a person',
+        },
+        {
+          name: 'Unarchive',
+          value: RUNN_OPERATIONS.PEOPLE.UNARCHIVE,
+          description: 'Unarchive a person',
+          action: 'Unarchive a person',
+        },
+        {
+          name: 'Delete',
+          value: RUNN_OPERATIONS.PEOPLE.DELETE,
+          description: 'Delete a person',
+          action: 'Delete a person',
+        },
+      ]
     },
 
     // ID field for single item operations (clients, projects)
@@ -286,127 +247,43 @@ export const nodeDescription: INodeTypeDescription = {
       description: 'ID of the item to operate on',
     },
 
-    // Fields for creating a person
+    // Fields for fetching all clients, projects, and people
     {
-      displayName: 'First Name',
-      name: 'firstName',
-      type: 'string',
-      required: true,
-      displayOptions: {
-        show: {
-          resource: ['people'],
-          operation: [RUNN_OPERATIONS.PEOPLE.CREATE, RUNN_OPERATIONS.PEOPLE.UPDATE],
-        },
-      },
-      default: '',
-      description: 'First name of the person',
-    },
-    {
-      displayName: 'Last Name',
-      name: 'lastName',
-      type: 'string',
-      required: true,
-      displayOptions: {
-        show: {
-          resource: ['people'],
-          operation: [RUNN_OPERATIONS.PEOPLE.CREATE, RUNN_OPERATIONS.PEOPLE.UPDATE],
-        },
-      },
-      default: '',
-      description: 'Last name of the person',
-    },
-    {
-      displayName: 'Role',
-      name: 'role',
-      type: 'string',
-      required: true,
-      displayOptions: {
-        show: {
-          resource: ['people'],
-          operation: [RUNN_OPERATIONS.PEOPLE.CREATE],
-        },
-      },
-      default: '',
-      description: 'Role to assign to the person (supported both role Id or String)',
-    },
-    {
-      displayName: 'Email',
-      name: 'email',
-      type: 'string',
-      displayOptions: {
-        show: {
-          resource: ['people'],
-          operation: [RUNN_OPERATIONS.PEOPLE.CREATE, RUNN_OPERATIONS.PEOPLE.UPDATE],
-        },
-      },
-      default: '',
-      description: 'Email of the person',
-    },
-    {
-      displayName: 'Start Date',
-      name: 'startDate',
-      type: 'dateTime',
-      displayOptions: {
-        show: {
-          resource: ['people'],
-          operation: [RUNN_OPERATIONS.PEOPLE.CREATE],
-        },
-      },
-      default: '',
-      description: 'Start date of the person contract (first working day). Defaults to today.',
-    },
-    {
-      displayName: 'End Date',
-      name: 'endDate',
-      type: 'dateTime',
-      displayOptions: {
-        show: {
-          resource: ['people'],
-          operation: [RUNN_OPERATIONS.PEOPLE.CREATE],
-        },
-      },
-      default: '',
-      description: 'Last date of the person contract',
-    },
-    {
-      displayName: 'Employment Type',
-      name: 'employmentType',
-      type: 'options',
-      options: [
-        {
-          name: '<empty>',
-          value: '',
-        },
-        {
-          name: 'Employee',
-          value: 'employee',
-        },
-        {
-          name: 'Contractor',
-          value: 'contractor',
-        },
-      ],
-      displayOptions: {
-        show: {
-          resource: ['people'],
-          operation: [RUNN_OPERATIONS.PEOPLE.CREATE],
-        },
-      },
-      default: '',
-      description: 'The type of employment for the contract',
-    },
-    {
-      displayName: 'Is Archived?',
-      name: 'isArchived',
+      displayName: 'Only Active',
+      name: 'onlyActive',
       type: 'boolean',
+      default: false,
       displayOptions: {
         show: {
-          resource: ['people'],
-          operation: [RUNN_OPERATIONS.PEOPLE.UPDATE],
+          operation: [
+            RUNN_OPERATIONS.PEOPLE.FETCH_ALL,
+            RUNN_OPERATIONS.CLIENTS.FETCH_ALL,
+            RUNN_OPERATIONS.PROJECTS.FETCH_ALL
+          ],
         },
       },
-      default: false,
-      description: 'Whether the person is archived or not',
+      description: 'Return only active people',
+    },
+
+    // ID or Email field for single item operations (people)
+    {
+      displayName: 'ID or Email',
+      name: 'idOrEmail',
+      type: 'string',
+      required: true,
+      displayOptions: {
+        show: {
+          operation: [
+            RUNN_OPERATIONS.PEOPLE.FETCH_ONE,
+            RUNN_OPERATIONS.PEOPLE.UPDATE,
+            RUNN_OPERATIONS.PEOPLE.ARCHIVE,
+            RUNN_OPERATIONS.PEOPLE.UNARCHIVE,
+            RUNN_OPERATIONS.PEOPLE.DELETE
+          ],
+        },
+      },
+      default: '',
+      description: 'ID or Email of the item to operate on (at least one of them should be filled)',
     },
 
     // Fields for creating/updating a client
@@ -603,6 +480,129 @@ export const nodeDescription: INodeTypeDescription = {
       },
       default: '',
       description: 'Note for the project',
+    },
+
+    // Fields for creating a person
+    {
+      displayName: 'First Name',
+      name: 'firstName',
+      type: 'string',
+      required: true,
+      displayOptions: {
+        show: {
+          resource: ['people'],
+          operation: [RUNN_OPERATIONS.PEOPLE.CREATE, RUNN_OPERATIONS.PEOPLE.UPDATE],
+        },
+      },
+      default: '',
+      description: 'First name of the person',
+    },
+    {
+      displayName: 'Last Name',
+      name: 'lastName',
+      type: 'string',
+      required: true,
+      displayOptions: {
+        show: {
+          resource: ['people'],
+          operation: [RUNN_OPERATIONS.PEOPLE.CREATE, RUNN_OPERATIONS.PEOPLE.UPDATE],
+        },
+      },
+      default: '',
+      description: 'Last name of the person',
+    },
+    {
+      displayName: 'Role',
+      name: 'role',
+      type: 'string',
+      required: true,
+      displayOptions: {
+        show: {
+          resource: ['people'],
+          operation: [RUNN_OPERATIONS.PEOPLE.CREATE],
+        },
+      },
+      default: '',
+      description: 'Role to assign to the person (supported both role Id or String)',
+    },
+    {
+      displayName: 'Email',
+      name: 'email',
+      type: 'string',
+      displayOptions: {
+        show: {
+          resource: ['people'],
+          operation: [RUNN_OPERATIONS.PEOPLE.CREATE, RUNN_OPERATIONS.PEOPLE.UPDATE],
+        },
+      },
+      default: '',
+      description: 'Email of the person',
+    },
+    {
+      displayName: 'Start Date',
+      name: 'startDate',
+      type: 'dateTime',
+      displayOptions: {
+        show: {
+          resource: ['people'],
+          operation: [RUNN_OPERATIONS.PEOPLE.CREATE],
+        },
+      },
+      default: '',
+      description: 'Start date of the person contract (first working day). Defaults to today.',
+    },
+    {
+      displayName: 'End Date',
+      name: 'endDate',
+      type: 'dateTime',
+      displayOptions: {
+        show: {
+          resource: ['people'],
+          operation: [RUNN_OPERATIONS.PEOPLE.CREATE],
+        },
+      },
+      default: '',
+      description: 'Last date of the person contract',
+    },
+    {
+      displayName: 'Employment Type',
+      name: 'employmentType',
+      type: 'options',
+      options: [
+        {
+          name: '<empty>',
+          value: '',
+        },
+        {
+          name: 'Employee',
+          value: 'employee',
+        },
+        {
+          name: 'Contractor',
+          value: 'contractor',
+        },
+      ],
+      displayOptions: {
+        show: {
+          resource: ['people'],
+          operation: [RUNN_OPERATIONS.PEOPLE.CREATE],
+        },
+      },
+      default: '',
+      description: 'The type of employment for the contract',
+    },
+    {
+      displayName: 'Is Archived?',
+      name: 'isArchived',
+      type: 'boolean',
+      displayOptions: {
+        show: {
+          resource: ['people'],
+          operation: [RUNN_OPERATIONS.PEOPLE.UPDATE],
+        },
+      },
+      default: false,
+      description: 'Whether the person is archived or not',
     },
 
     // Dry Run Option
