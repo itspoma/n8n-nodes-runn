@@ -44,6 +44,7 @@ export async function executePeopleOperation(
   for (let i = 0; i < items.length; i++) {
     try {
       let responseData;
+      const dryRun = this.getNodeParameter('dryRun', i) as boolean;
 
       this.logger.debug('operation', { operation });
 
@@ -84,6 +85,14 @@ export async function executePeopleOperation(
             ...(createValues.endDate ? { endDate: createValues.endDate } : {}),
             ...(createValues.employmentType ? { employmentType: createValues.employmentType } : {}),
           };
+
+          if (dryRun) {
+            responseData = {
+              success: true,
+              dry_run: true,
+            };
+            break;
+          }
 
           this.logger.debug('Creating person:', { createValues, createOtherValues });
 
@@ -131,6 +140,14 @@ export async function executePeopleOperation(
             ...(updateValues.isArchived ? { isArchived: updateValues.isArchived } : {}),
           };
 
+          if (dryRun) {
+            responseData = {
+              success: true,
+              dry_run: true,
+            };
+            break;
+          }
+
           this.logger.debug('Updating person:', { id: updatePersonId, updateValues, updateValuesData });
 
           try {
@@ -156,7 +173,25 @@ export async function executePeopleOperation(
             this.getNodeParameter('idOrEmail', i) as string,
             runnApi,
           );
-          responseData = await runnApi.people.archive(archivePersonId);
+
+          if (dryRun) {
+            responseData = {
+              success: true,
+              dry_run: true,
+            };
+            break;
+          }
+
+          try {
+            responseData = await runnApi.people.archive(archivePersonId);
+          }
+          catch (error) {
+            throw new NodeOperationError(
+              this.getNode(),
+              error.response.data.message,
+              { description: error.response.status },
+            );
+          }
           break;
 
         // unarchive a person
@@ -166,7 +201,25 @@ export async function executePeopleOperation(
             this.getNodeParameter('idOrEmail', i) as string,
             runnApi,
           );
-          responseData = await runnApi.people.unarchive(unarchivePersonId);
+
+          if (dryRun) {
+            responseData = {
+              success: true,
+              dry_run: true,
+            };
+            break;
+          }
+
+          try {
+            responseData = await runnApi.people.unarchive(unarchivePersonId);
+          }
+          catch (error) {
+            throw new NodeOperationError(
+              this.getNode(),
+              error.response.data.message,
+              { description: error.response.status },
+            );
+          }
           break;
 
         // delete a person
@@ -176,7 +229,25 @@ export async function executePeopleOperation(
             this.getNodeParameter('idOrEmail', i) as string,
             runnApi,
           );
-          responseData = await runnApi.people.delete(deletePersonId);
+
+          if (dryRun) {
+            responseData = {
+              success: true,
+              dry_run: true,
+            };
+            break;
+          }
+
+          try {
+            responseData = await runnApi.people.delete(deletePersonId);
+          }
+          catch (error) {
+            throw new NodeOperationError(
+              this.getNode(),
+              error.response.data.message,
+              { description: error.response.status },
+            );
+          }
           break;
 
         default:

@@ -1,4 +1,12 @@
 export const RUNN_OPERATIONS = {
+  CLIENTS: {
+    FETCH_ALL: 'fetchAllClients',
+    FETCH_ONE: 'fetchClient',
+    CREATE: 'createClient',
+    UPDATE: 'updateClient',
+    ARCHIVE: 'archiveClient',
+    UNARCHIVE: 'unarchiveClient',
+  },
   PEOPLE: {
     FETCH_ALL: 'fetchAllPeople',
     FETCH_ONE: 'fetchPerson',
@@ -14,12 +22,9 @@ export const RUNN_OPERATIONS = {
     CREATE: 'createProject',
     UPDATE: 'updateProject',
     ADD_NOTE: 'addNote',
-  },
-  CLIENTS: {
-    FETCH_ALL: 'fetchAllClients',
-    FETCH_ONE: 'fetchClient',
-    CREATE: 'createClient',
-    UPDATE: 'updateClient',
+    ARCHIVE: 'archiveProject',
+    UNARCHIVE: 'unarchiveProject',
+    DELETE: 'deleteProject',
   },
 } as const;
 

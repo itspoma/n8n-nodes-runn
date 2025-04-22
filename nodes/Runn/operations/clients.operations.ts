@@ -1,4 +1,4 @@
-import { IExecuteFunctions, INodeExecutionData } from 'n8n-workflow';
+import { IExecuteFunctions, INodeExecutionData, NodeOperationError } from 'n8n-workflow';
 import { RUNN_OPERATIONS } from '../types/operations.types';
 
 export async function executeClientsOperation(
@@ -12,32 +12,134 @@ export async function executeClientsOperation(
   for (let i = 0; i < items.length; i++) {
     try {
       let responseData;
+      const dryRun = this.getNodeParameter('dryRun', i) as boolean;
 
       switch (operation) {
         case RUNN_OPERATIONS.CLIENTS.FETCH_ALL:
-          responseData = await runnApi.clients.fetchAll();
+          const onlyActive = this.getNodeParameter('onlyActive', i) as boolean;
+          responseData = await runnApi.clients.fetchAll({ onlyActive });
           break;
 
         case RUNN_OPERATIONS.CLIENTS.FETCH_ONE:
           const clientId = this.getNodeParameter('id', i) as string;
-          responseData = await runnApi.clients.fetchOneById(clientId);
+          try {
+            responseData = await runnApi.clients.fetchOneById(clientId);
+          }
+          catch (error) {
+            throw new NodeOperationError(
+              this.getNode(),
+              error.response.data.message,
+              { description: error.response.status },
+            );
+          }
           break;
 
         case RUNN_OPERATIONS.CLIENTS.CREATE:
-          // Implementation for create client
-          const clientData = {
-            // Add client creation parameters here
+          const createData = {
+            name: this.getNodeParameter('name', i) as string,
+            website: this.getNodeParameter('website', i) as string,
           };
-          responseData = await runnApi.clients.create(clientData);
+
+          const createOtherValues = {
+            ...(createData.website ? { website: createData.website } : {}),
+          };
+
+          if (dryRun) {
+            responseData = {
+              success: true,
+              dry_run: true,
+            };
+            break;
+          }
+
+          try {
+            responseData = await runnApi.clients.create(createData.name, [], createOtherValues);
+          }
+          catch (error) {
+            throw new NodeOperationError(
+              this.getNode(),
+              error.response.data.message,
+              { description: error.response.status },
+            );
+          }
           break;
 
         case RUNN_OPERATIONS.CLIENTS.UPDATE:
-          // Implementation for update client
           const updateClientId = this.getNodeParameter('id', i) as string;
           const updateData = {
-            // Add client update parameters here
+            name: this.getNodeParameter('name', i) as string | null,
+            website: this.getNodeParameter('website', i) as string | null,
           };
-          responseData = await runnApi.clients.update(updateClientId, updateData);
+
+          const updateOtherValues = {
+            ...(updateData.name ? { name: updateData.name } : {}),
+            ...(updateData.website ? { website: updateData.website } : {}),
+          };
+
+          if (dryRun) {
+            responseData = {
+              success: true,
+              dry_run: true,
+            };
+            break;
+          }
+
+          try {
+            responseData = await runnApi.clients.update(updateClientId, updateOtherValues);
+          }
+          catch (error) {
+            throw new NodeOperationError(
+              this.getNode(),
+              error.response.data.message,
+              { description: error.response.status },
+            );
+          }
+          break;
+
+        case RUNN_OPERATIONS.CLIENTS.ARCHIVE:
+          const archiveClientId = this.getNodeParameter('id', i) as string;
+
+          if (dryRun) {
+            responseData = {
+              success: true,
+              dry_run: true,
+            };
+            break;
+          }
+
+          try {
+            responseData = await runnApi.clients.archive(archiveClientId);
+          }
+          catch (error) {
+            throw new NodeOperationError(
+              this.getNode(),
+              error.response.data.message,
+              { description: error.response.status },
+            );
+          }
+          break;
+
+        case RUNN_OPERATIONS.CLIENTS.UNARCHIVE:
+          const unarchiveClientId = this.getNodeParameter('id', i) as string;
+
+          if (dryRun) {
+            responseData = {
+              success: true,
+              dry_run: true,
+            };
+            break;
+          }
+
+          try {
+            responseData = await runnApi.clients.unarchive(unarchiveClientId);
+          }
+          catch (error) {
+            throw new NodeOperationError(
+              this.getNode(),
+              error.response.data.message,
+              { description: error.response.status },
+            );
+          }
           break;
 
         default:
