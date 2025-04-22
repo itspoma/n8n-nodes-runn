@@ -13,11 +13,11 @@ This is an n8n community node. It lets you use Runn in your n8n workflows.
 
 [Ralabs](https://ralabs.org) is a software dev company, who creates integration between 3rd parties (Salesforce, PowerBI, etc).
 
-[![Watch the Loom](https://github.com/user-attachments/assets/5ac15989-362d-4f84-8eea-b1b2d9013519)](https://www.loom.com/share/3a58674a11a54dbe9c17a8c7a46d7dde?sid=f046c910-bedd-4f33-b4a1-2eae82b187ab)
+[![Watch the Loom](docs/images/loom.png)](https://www.loom.com/share/3a58674a11a54dbe9c17a8c7a46d7dde?sid=f046c910-bedd-4f33-b4a1-2eae82b187ab)
 
 ## Example of 2-way synchronization workflow between Runn and Google Sheets
 
-<img src="https://github.com/user-attachments/assets/76688ced-2ae0-43ea-a7d9-98d3adfde07b" />
+<img src="docs/images/2-ways-sync-workflow.png" />
 
 ## Author
 
