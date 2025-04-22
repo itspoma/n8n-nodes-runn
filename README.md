@@ -4,6 +4,8 @@ This is an n8n community node. It lets you use Runn in your n8n workflows.
 
 Runn is a project management platform that helps you manage your team's work and projects.
 
+![](https://github.com/user-attachments/assets/f1e7628a-202b-44ab-82a0-67e016f89af9)
+
 [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
 
 [Installation](#installation)  
