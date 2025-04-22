@@ -8,12 +8,6 @@ Runn is a project management platform that helps you manage your team's work and
 
 [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
 
-[Installation](#installation)  
-[Operations](#operations)  
-[Credentials](#credentials)
-[Compatibility](#compatibility)  
-[Resources](#resources)  
-
 ## Installation
 
 Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes/installation/) in the n8n community nodes documentation.
@@ -26,22 +20,22 @@ n8n-nodes-runn % npm link
 n8n-nodes-runn % N8N_LOG_LEVEL=debug n8n start
 ```
 
+### Credentials
+
+To use this node, you need to have a Runn API key. You can get one from your [Runn account API settings](https://app.runn.io/account/api).
+
 ## Operations
-
-### Supported Resources
-
-- `Client` (fetch all, fetch one, create, update, delete, archive, unarchive)
-- `Project` (fetch all, fetch one, create, update, delete, archive, unarchive)
-- `Person` (fetch all, fetch one, create, update, delete, archive, unarchive)
 
 ### Supported Triggers
 
 - Events: `On created`, `On updated`, `On deleted`
 - Resources: `Client`, `Project`, `People`, `Actuals`, `Assignments`, `Contracts`, `Users`, `Teams`
 
-## Credentials
+### Supported Resources & Operations
 
-To use this node, you need to have a Runn API key. You can get one from your [Runn account API settings](https://app.runn.io/account/api).
+- `Client` (fetch all, fetch one, create, update, delete, archive, unarchive)
+- `Project` (fetch all, fetch one, create, update, delete, archive, unarchive)
+- `Person` (fetch all, fetch one, create, update, delete, archive, unarchive)
 
 ## Compatibility
 
