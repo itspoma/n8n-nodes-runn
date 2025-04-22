@@ -616,7 +616,7 @@ export const nodeDescription: INodeTypeDescription = {
       name: 'dryRun',
       type: 'boolean',
       default: false,
-      description: 'Whether no actual changes will be made to your Runn account',
+      description: 'Whether no actual changes will be made to your Runn account.  When enabled, it will only simulate the operation.',
       displayOptions: {
         show: {
           resource: ['people', 'projects'],
@@ -640,7 +640,6 @@ export const nodeDescription: INodeTypeDescription = {
         },
       },
     },
-
     // Options
     {
       displayName: 'Options',

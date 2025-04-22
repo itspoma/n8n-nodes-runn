@@ -12,7 +12,14 @@ export async function executeProjectsOperation(
   for (let i = 0; i < items.length; i++) {
     try {
       let responseData;
-      const dryRun = this.getNodeParameter('dryRun', i) as boolean;
+
+      let dryRun = false;
+      try {
+        dryRun = this.getNodeParameter('dryRun', i) as boolean;
+      }
+      catch (e) {
+        dryRun = false;
+      }
 
       switch (operation) {
         case RUNN_OPERATIONS.PROJECTS.FETCH_ALL:
