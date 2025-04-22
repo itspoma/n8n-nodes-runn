@@ -3,7 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/n8n-nodes-runn.svg)](https://www.npmjs.com/package/n8n-nodes-runn)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Dependencies](https://img.shields.io/librariesio/release/npm/n8n-nodes-runn)](https://libraries.io/npm/n8n-nodes-runn)
-[![Known Vulnerabilities](https://snyk.io/test/github/ralabs-team/n8n-nodes-runn/badge.svg)](https://snyk.io/test/github/ralabs-team/n8n-nodes-runn)
+[![Known Vulnerabilities](https://snyk.io/test/github/itspoma/n8n-nodes-runn/badge.svg)](https://snyk.io/test/github/itspoma/n8n-nodes-runn)
 
 This is an n8n community node. It lets you use Runn in your n8n workflows.
 
@@ -14,6 +14,10 @@ This is an n8n community node. It lets you use Runn in your n8n workflows.
 ## Example of 2-way synchronization workflow between Runn and Google Sheets
 
 ![](https://github.com/user-attachments/assets/f1e7628a-202b-44ab-82a0-67e016f89af9)
+
+## Author
+
+Roman Rodomansky @ [Ralabs](https://ralabs.org)
 
 ## Installation
 
