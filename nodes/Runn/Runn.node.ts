@@ -1,4 +1,6 @@
-import { IExecuteFunctions, INodeExecutionData } from 'n8n-workflow';
+/* eslint-disable n8n-nodes-base/node-filename-against-convention */
+
+import { IExecuteFunctions, INodeExecutionData, NodeOperationError } from 'n8n-workflow';
 import { RunnBaseNode } from './base/RunnBaseNode';
 import { nodeDescription } from './descriptions/node.description';
 import { executePeopleOperation } from './operations/people.operations';
@@ -30,7 +32,7 @@ export class Runn extends RunnBaseNode {
           returnData = await executePeopleOperation.call(this, operation, items, runnApi);
           break;
         default:
-          throw new Error(`Unsupported resource ${resource}`);
+          throw new NodeOperationError(this.getNode(), `Unsupported resource ${resource}`);
       }
 
       return [returnData];

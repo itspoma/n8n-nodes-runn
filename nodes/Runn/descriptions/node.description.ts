@@ -1,9 +1,12 @@
+/* eslint-disable n8n-nodes-base/node-filename-against-convention */
+
 import { INodeTypeDescription, NodeConnectionType } from 'n8n-workflow';
 import { RUNN_OPERATIONS } from '../types/operations.types';
 
 export const nodeDescription: INodeTypeDescription = {
   displayName: 'Runn',
   name: 'runn',
+  // eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
   icon: 'file:runn.png',
   group: ['transform'],
   version: 1,
@@ -13,6 +16,7 @@ export const nodeDescription: INodeTypeDescription = {
     name: 'Runn',
   },
   inputs: [NodeConnectionType.Main],
+  // eslint-disable-next-line n8n-nodes-base/node-class-description-outputs-wrong
   outputs: [NodeConnectionType.Main],
   credentials: [
     {
@@ -48,6 +52,7 @@ export const nodeDescription: INodeTypeDescription = {
     },
 
     // Operations for Clients
+    // eslint-disable-next-line n8n-nodes-base/node-param-default-missing
     {
       displayName: 'Operation',
       name: 'operation',
@@ -100,6 +105,7 @@ export const nodeDescription: INodeTypeDescription = {
     },
 
     // Operations for Projects
+    // eslint-disable-next-line n8n-nodes-base/node-param-default-missing
     {
       displayName: 'Operation',
       name: 'operation',
@@ -164,6 +170,7 @@ export const nodeDescription: INodeTypeDescription = {
     },
 
     // Operations for People
+    // eslint-disable-next-line n8n-nodes-base/node-param-default-missing
     {
       displayName: 'Operation',
       name: 'operation',
@@ -262,7 +269,7 @@ export const nodeDescription: INodeTypeDescription = {
           ],
         },
       },
-      description: 'Return only active people',
+      description: 'Whether to return only active people',
     },
 
     // ID or Email field for single item operations (people)
@@ -305,7 +312,6 @@ export const nodeDescription: INodeTypeDescription = {
       displayName: 'Name',
       name: 'name',
       type: 'string',
-      required: false,
       displayOptions: {
         show: {
           resource: ['clients'],
@@ -366,7 +372,6 @@ export const nodeDescription: INodeTypeDescription = {
       displayName: 'Name',
       name: 'name',
       type: 'string',
-      required: false,
       displayOptions: {
         show: {
           resource: ['projects'],
@@ -426,7 +431,6 @@ export const nodeDescription: INodeTypeDescription = {
       displayName: 'Client ID',
       name: 'clientId',
       type: 'number',
-      required: false,
       displayOptions: {
         show: {
           resource: ['projects'],
@@ -523,12 +527,13 @@ export const nodeDescription: INodeTypeDescription = {
         },
       },
       default: '',
-      description: 'Role to assign to the person (supported both role Id or String)',
+      description: 'Role to assign to the person (supported both role ID or String)',
     },
     {
       displayName: 'Email',
       name: 'email',
       type: 'string',
+      placeholder: 'name@email.com',
       displayOptions: {
         show: {
           resource: ['people'],
@@ -570,7 +575,7 @@ export const nodeDescription: INodeTypeDescription = {
       type: 'options',
       options: [
         {
-          name: '<empty>',
+          name: 'Empty',
           value: '',
         },
         {
@@ -611,7 +616,7 @@ export const nodeDescription: INodeTypeDescription = {
       name: 'dryRun',
       type: 'boolean',
       default: false,
-      description: 'If enabled, no actual changes will be made to your Runn account',
+      description: 'Whether no actual changes will be made to your Runn account',
       displayOptions: {
         show: {
           resource: ['people', 'projects'],

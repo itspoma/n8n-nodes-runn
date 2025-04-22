@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ralabs-team/n8n-nodes-runn.git"
+    "url": "https://github.com/itspoma/n8n-nodes-runn.git"
   },
   "main": "index.js",
   "scripts": {

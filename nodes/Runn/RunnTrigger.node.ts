@@ -38,6 +38,7 @@ export class RunnTrigger extends RunnBaseNode implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Runn Trigger',
 		name: 'runnTrigger',
+		// eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
 		icon: 'file:runn.png',
 		group: ['trigger'],
 		version: 1,
@@ -46,6 +47,7 @@ export class RunnTrigger extends RunnBaseNode implements INodeType {
 			name: 'When Runn events occur',
 		},
 		inputs: [],
+    // eslint-disable-next-line n8n-nodes-base/node-class-description-outputs-wrong
 		outputs: [NodeConnectionType.Main],
 		subtitle: '={{$parameter["events"].length + " events over " + $parameter["resources"].length + " resources"}}',
 		credentials: [
