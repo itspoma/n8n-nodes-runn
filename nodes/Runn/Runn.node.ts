@@ -12,7 +12,7 @@ export class Runn extends RunnBaseNode {
     const items = this.getInputData();
     const resource = this.getNodeParameter('resource', 0) as string;
     const operation = this.getNodeParameter('operation', 0) as string;
-    this.logger.debug('Resource/Operation:', { resource, operation });
+    // this.logger.debug('Resource/Operation:', { resource, operation });
 
     const runnApi = await RunnBaseNode.prototype.getRunnApi.call(this);
 

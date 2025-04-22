@@ -19,7 +19,7 @@ async function getPersonId(
   }
 
   const email = idOrEmail;
-  this.logger.debug('Fetching person with email', { email });
+  // this.logger.debug('Fetching person with email', { email });
 
   const personData = await runnApi.people.fetchOneByEmail(email);
   if (!personData) {
@@ -46,7 +46,7 @@ export async function executePeopleOperation(
       let responseData;
       const dryRun = this.getNodeParameter('dryRun', i) as boolean;
 
-      this.logger.debug('operation', { operation });
+      // this.logger.debug('operation', { operation });
 
       switch (operation) {
         // fetch all people
@@ -94,7 +94,7 @@ export async function executePeopleOperation(
             break;
           }
 
-          this.logger.debug('Creating person:', { createValues, createOtherValues });
+          // this.logger.debug('Creating person:', { createValues, createOtherValues });
 
           try {
             responseData = await runnApi.people.create(
@@ -148,7 +148,7 @@ export async function executePeopleOperation(
             break;
           }
 
-          this.logger.debug('Updating person:', { id: updatePersonId, updateValues, updateValuesData });
+          // this.logger.debug('Updating person:', { id: updatePersonId, updateValues, updateValuesData });
 
           try {
             responseData = await runnApi.people.update(updatePersonId, updateValuesData);
