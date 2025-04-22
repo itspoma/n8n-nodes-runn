@@ -13,7 +13,7 @@ This is an n8n community node. It lets you use Runn in your n8n workflows.
 
 ## Example of 2-way synchronization workflow between Runn and Google Sheets
 
-![](https://github.com/user-attachments/assets/f1e7628a-202b-44ab-82a0-67e016f89af9)
+![](https://media-hosting.imagekit.io/72eac947c9b24bca/435858910-f1e7628a-202b-44ab-82a0-67e016f89af9.png?Expires=1839941247&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=vpQ9UjvZx47lKtkEDmCQz55kWu4lKZF0DnajjF7ycJzuVUqg6KCsGlTT6~HdIqSiA2swQ7Ztc~ig1A1dmI-eQLf6MFvnyjDiSgxrttGMOy8MT~fGg2yLzIYNXmQvJ1yojtwSou0Yma4w-JmoDb4y-xy6-XN4XMSappJBs-46Ejr4ZZ~3SJfBXmK7oqmdnhIGZky2onYk4ksUu9AOFHj9PB76Xz6bPkS28TXPWqtLllu4Oh60FbKZfSHr3BXqkPWtMLWIfdjAmMgLe-C94a3GpMDlfxwtCzXqSvGsTHqrW4nOvRlmKTD3qceBL8daX~P7S~9-OKneom2zPKxBX1DshQ__)
 
 ## Author
 
