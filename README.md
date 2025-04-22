@@ -26,52 +26,16 @@ n8n-nodes-runn % N8N_LOG_LEVEL=debug n8n start
 
 ## Operations
 
-This node supports the following operations:
+### Supported Resources
 
-- `Create a new client` - creates a new client
-- `Fetch a client` - fetches a client by id
-- `Fetch all clients` - fetches all clients
-- `Update a client` - updates a client
-- `Delete a client` - deletes a client
+- `Client` (fetch all, fetch one, create, update, delete, archive, unarchive)
+- `Project` (fetch all, fetch one, create, update, delete, archive, unarchive)
+- `Person` (fetch all, fetch one, create, update, delete, archive, unarchive)
 
-- `Create a new project` - creates a new project
-- `Fetch a project` - fetches a project by id
-- `Fetch all projects` - fetches all projects
-- `Update a project` - updates a project
-- `Delete a project` - deletes a project
+### Supported Triggers
 
-- `Create a new person` - creates a new person
-- `Fetch a person` - fetches a person by id
-- `Fetch all people` - fetches all people
-- `Update a person` - updates a person
-- `Delete a person` - deletes a person
-
-- `Create a new allocation` - creates a new allocation
-- `Fetch an allocation` - fetches an allocation by id
-- `Fetch all allocations` - fetches all allocations
-- `Update an allocation` - updates an allocation
-- `Delete an allocation` - deletes an allocation
-
-- `Create a new note` - creates a new note
-- `Fetch a note` - fetches a note by id
-- `Fetch all notes` - fetches all notes
-- `Update a note` - updates a note
-- `Delete a note` - deletes a note
-
-## Triggers
-
-This node supports the following triggers:
-
-- `Client created` - triggers when a new client is created
-- `Client updated` - triggers when an existing client is updated
-- `Client deleted` - triggers when a client is deleted
-- `Project created` - triggers when a new project is created
-- `Project updated` - triggers when an existing project is updated
-- `Project deleted` - triggers when a project is deleted
-- `Person created` - triggers when a new person is created
-- `Person updated` - triggers when an existing person is updated
-- `Person deleted` - triggers when a person is deleted
-
+- Events: `On created`, `On updated`, `On deleted`
+- Resources: `Client`, `Project`, `People`, `Actuals`, `Assignments`, `Contracts`, `Users`, `Teams`
 
 ## Credentials
 
